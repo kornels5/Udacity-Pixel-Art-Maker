@@ -19,6 +19,7 @@ h2:first-of-type {
 table,
 tr,
 td {
+    background-color: #fff;
     border: 1px solid black;
 }
 

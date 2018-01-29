@@ -1,35 +1,35 @@
-$(function () {
-    // Select color input
-    // Select size input
+document.addEventListener('DOMContentLoaded', function () {
 
-    // When size is submitted by the user, call makeGrid()
+    let table = document.querySelector('#pixelCanvas'),
+        submitInput = document.querySelector('input[type="submit"]');
+        colorPicker = document.querySelector('#colorPicker');
 
-    
-    var submit = $('input[type="submit"]');
+    function changeColor() {
+        let tdColor = this.style.backgroundColor;
+        if (tdColor === '' || tdColor === 'rgb(255, 255, 255)') {
+            this.style.backgroundColor = colorPicker.value;
+        } else {
+            this.style.backgroundColor = 'rgb(255, 255, 255)';
+        }
+    }
 
     function makeGrid() {
-        var inputHeight = $('#inputHeight').val();
-        var inputWidth = $('#inputWeight').val();
-        var td = $('<td>');
-        var tr = $('<tr>');
-        var table = $('#pixelCanvas');
+        let height = document.querySelector('#inputHeight').value,
+            width = document.querySelector('#inputWeight').value;
 
-        for (var i=0; i<inputHeight; i++) {
-            table.append(tr);
+        for (let i = 0; i < height; i++) {
+            let row = table.insertRow();
+            for (let j = 0; j < width; j++) {
+                let cell = row.insertCell();
+                cell.onclick = changeColor;
+            }
         }
-        for (var j=0; j<inputWidth; j++) {
-            tr.append(td);
-        }
-        console.log(inputHeight, inputWidth);
     }
-    
-    submit.on('click', function(e){
+
+    submitInput.addEventListener('click', function (e) {
+        table.innerHTML = '';
         e.preventDefault();
         makeGrid();
-        
     });
 
-
-    
-    
 });
