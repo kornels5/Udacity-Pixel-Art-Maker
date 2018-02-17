@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    let table = document.querySelector('#pixelCanvas'),
-        submitInput = document.querySelector('input[type="submit"]');
-        colorPicker = document.querySelector('#colorPicker');
+    let table = document.querySelector('#pixelCanvas');
+    let submitInput = document.querySelector('input[type="submit"]');
+    let colorPicker = document.querySelector('#colorPicker');
 
     function changeColor() {
         let tdColor = this.style.backgroundColor;
